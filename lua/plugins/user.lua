@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- You can also add or configure plugins by creating files in this `plugins/` folder
 -- Here are some examples:
@@ -13,6 +13,18 @@ return {
     "ray-x/lsp_signature.nvim",
     event = "BufRead",
     config = function() require("lsp_signature").setup() end,
+  },
+
+  -- Jake
+    {
+    "github/copilot.vim",
+    event = "InsertEnter",
+    config = function()
+      vim.cmd [[
+        imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+        let g:copilot_no_tab_map = v:true
+      ]]
+    end,
   },
 
   -- == Examples of Overriding Plugins ==
