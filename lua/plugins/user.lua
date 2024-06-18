@@ -15,10 +15,9 @@ return {
     config = function() require("lsp_signature").setup() end,
   },
 
-  -- Jake
-    {
+  {
     "github/copilot.vim",
-    event = "InsertEnter",
+    -- event = "InsertEnter",
     config = function()
       vim.cmd [[
         imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
